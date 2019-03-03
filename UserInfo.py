@@ -16,6 +16,9 @@ class UserInfo(object):
         self.result_list = []
 
     def mk_dir_with_user_info(self):
+        ##创建outputs目录
+        if not os.path.exists('outputs'):
+            os.mkdir('outputs')
         ##创建目录
         if os.path.exists('outputs' + os.sep + self.path_name):
             return True
