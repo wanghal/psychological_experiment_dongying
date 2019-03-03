@@ -177,7 +177,7 @@ class Experiment(object):
 
     def write_logs(self, file_path):
         with open('outputs'+ os.sep + self.user_info.path_name + os.sep + file_path + '.csv', 'w+') as f:
-            writer = csv.writer(f)
+            writer = csv.writer(f, dialect='unix')
             writer.writerow(['sign', 'user_action', 'user_action_time', 'whether_stoped', 'ssd_time'])
             for item in self.result_list:
                 writer.writerow(item.attributes_to_list())
@@ -293,7 +293,7 @@ class Practice_1(Experiment):
         return True
 
     def write_logs(self):
-        date = datetime.datetime.now().strftime("%Y-%m-%d--%H:%M:%S")
+        date = datetime.datetime.now().strftime("%Y-%m-%d--%H_%M_%S")
         file_path = date + "_" + self.user_info.path_name + "_Practice_1"
         return super().write_logs(file_path)
 
@@ -353,7 +353,7 @@ class Practice_2(Experiment):
         return True
 
     def write_logs(self):
-        date = datetime.datetime.now().strftime("%Y-%m-%d--%H:%M:%S")
+        date = datetime.datetime.now().strftime("%Y-%m-%d--%H_%M_%S")
         file_path = date + "_" + self.user_info.path_name + "_Practice_2"
         return super().write_logs(file_path)
 
@@ -376,7 +376,7 @@ class Formal_Experiment(Experiment):
             os.path.dirname(os.path.abspath(__file__)) + os.sep + 'images' + os.sep + 'stimu_.012.jpeg')
 
     def write_logs(self):
-        date = datetime.datetime.now().strftime("%Y-%m-%d--%H:%M:%S")
+        date = datetime.datetime.now().strftime("%Y-%m-%d--%H_%M_%S")
         file_path = date + "_" + self.user_info.path_name + "_Formal_Experiment_" + str(self.experiment_cnt)
         return super().write_logs(file_path)
 
