@@ -21,7 +21,7 @@ def main(*args, **kwargs):
     practice_2.process()
 
     ##正式实验
-    formal_experiment = Formal_Experiment(user_info, win, go_trail_number=6, stop_trail_number=2)
+    formal_experiment = Formal_Experiment(user_info, win, go_trail_number=3, stop_trail_number=1)
     formal_experiment.process()
     formal_experiment.process()
     formal_experiment.process()

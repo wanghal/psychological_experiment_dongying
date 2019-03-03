@@ -31,7 +31,7 @@ class UserInfo(object):
         # file_path = 'outputs' + os.sep + self.path_name + os.sep + 'record.csv'
         file_path = 'outputs' + os.sep + 'records.csv'
         if not os.path.exists(file_path):
-            with open(file_path, 'w+', encoding='utf-8') as f:
+            with open(file_path, 'w+') as f:
                 writer = csv.writer(f, dialect='unix')
                 writer.writerow(['姓名', '性别', '年级', '时间',
                                  'go trail正确平均反应时间',
@@ -50,7 +50,7 @@ class UserInfo(object):
                 #                  round(self.ave_ssd, 2)])
                 f.close()
         date = datetime.datetime.now().strftime("%Y-%m-%d")
-        with open(file_path, 'a', encoding='utf-8') as f:
+        with open(file_path, 'a') as f:
             writer = csv.writer(f, dialect='unix')
             self.experiment_analyze_result()
             writer.writerow([self.name, self.sex, self.grade, date,
